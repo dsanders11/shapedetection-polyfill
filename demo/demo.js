@@ -30,11 +30,11 @@ urlSelect.onchange = () => {
           ctx.drawImage(img, 0, 0, img.width, img.height);
 
           for(var i = 0; i < barcodes.length; i++) {
-            if (footer !== 'undefined')
+            if (typeof footer !== 'undefined')
               footer.innerHTML += ' found: ' + barcodes[i].rawValue + '\n';
-            if (barcodes[i].rawValue !== 'undefined')
+            if (typeof barcodes[i].rawValue !== 'undefined')
               console.log('Found sth: ' + barcodes[i].rawValue + '\n');
-            if (barcodes[i].cornerPoints !== 'undefined') {
+            if (typeof barcodes[i].cornerPoints !== 'undefined') {
 
               ctx.beginPath();
               ctx.lineWidth = 2;
@@ -56,7 +56,7 @@ urlSelect.onchange = () => {
           }
         })
         .catch( (error) => {
-          if (footer !== 'undefined')
+          if (typeof footer !== 'undefined')
             footer.innerHTML = 'detection failed: ' + error;
           console.error(error);
         });
